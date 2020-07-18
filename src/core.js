@@ -69,7 +69,7 @@ function getCameras() {
 }
 
 function myLog(obj){
-    document.getElementById("log").innerHTML += obj;
+    document.getElementById("log").innerHTML += JSON.stringify(obj, null, '\t');
     console.log(obj);
 }
 
