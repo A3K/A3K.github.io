@@ -1,0 +1,24 @@
+{
+  "name": "a3k.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "core.js",
+  "scripts": {
+    "build": "babel src -d lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/A3K/A3K.github.io.git"
+  },
+  "author": "D J Mucznik",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/A3K/A3K.github.io/issues"
+  },
+  "homepage": "https://github.com/A3K/A3K.github.io#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.10.5",
+    "@babel/preset-env": "^7.10.4"
+  }
+}
