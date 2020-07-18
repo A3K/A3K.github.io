@@ -3,14 +3,14 @@ function getCameras() {
         if (navigator.mediaDevices
             && navigator.mediaDevices.enumerateDevices
             && navigator.mediaDevices.getUserMedia) {
-            this._log("navigator.mediaDevices used");
+            myLog("navigator.mediaDevices used");
             navigator.mediaDevices.getUserMedia(
                 { audio: false, video: true })
                 .then(stream => {
                     // hacky approach to close any active stream if they are
                     // active.
                     stream.oninactive
-                        = _ => this._log("All streams closed");
+                        = _ => myLog("All streams closed");
                     const closeActiveStreams = stream => {
                         const tracks = stream.getVideoTracks();
                         for (var i = 0; i < tracks.length; i++) {
@@ -33,7 +33,7 @@ function getCameras() {
                                     });
                                 }
                             }
-                            this._log(`${results.length} results found`);
+                            myLog(`${results.length} results found`);
                             closeActiveStreams(stream);
                             resolve(results);
                         })
@@ -45,7 +45,7 @@ function getCameras() {
                     reject(`${err.name} : ${err.message}`);
                 })
         } else if (MediaStreamTrack && MediaStreamTrack.getSources) {
-            this._log("MediaStreamTrack.getSources used");
+            myLog("MediaStreamTrack.getSources used");
             const callback = sourceInfos => {
                 const results = [];
                 for (var i = 0; i !== sourceInfos.length; ++i) {
@@ -57,12 +57,12 @@ function getCameras() {
                         });
                     }
                 }
-                this._log(`${results.length} results found`);
+                myLog(`${results.length} results found`);
                 resolve(results);
             }
             MediaStreamTrack.getSources(callback);
         } else {
-            this._log("unable to query supported devices.");
+            myLog("unable to query supported devices.");
             reject("unable to query supported devices.");
         }
     });
