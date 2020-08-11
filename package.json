@@ -5,7 +5,7 @@
   "main": "core.js",
   "scripts": {
     "build": "babel src -d lib",
-    "up":  "babel src -d lib && git add . && git commit -m 'testing' && git push"
+    "up": "babel src -d lib && html-inline -i rgb.html -o index.html && git add . && git commit -m 'testing' && git push"
   },
   "repository": {
     "type": "git",
@@ -20,6 +20,7 @@
   "devDependencies": {
     "@babel/cli": "^7.10.5",
     "@babel/core": "^7.10.5",
-    "@babel/preset-env": "^7.10.4"
+    "@babel/preset-env": "^7.10.4",
+    "html-inline": "^1.2.0"
   }
 }
